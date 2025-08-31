@@ -1,0 +1,238 @@
+{
+  "projects": [
+    {
+      "id": "luxury-villa-f7",
+      "title": "Luxury Villa in F-7 Islamabad",
+      "category": "residential",
+      "location": "F-7, Islamabad",
+      "year": "2024",
+      "client": "Mr. Ahmed Khan",
+      "area": "4,500 sq ft",
+      "duration": "45 days",
+      "budget": "PKR 2,500,000",
+      "description": "This signature project showcases our mastery in combining various ceiling techniques to create a harmonious flow throughout the home. From the grand entrance with its ornate POP moldings to the living room's multi-level gypsum design with integrated lighting, every detail was meticulously crafted.",
+      "challenge": "The homeowners wanted a ceiling that would become a conversation piece while complementing their high-end furnishings. Our team created custom designs for each room while maintaining a cohesive aesthetic throughout the property.",
+      "solution": "We implemented a multi-level ceiling design with integrated smart lighting, custom POP moldings, and premium gypsum work. Each room features unique elements while maintaining overall design harmony.",
+      "features": [
+        "Multi-level gypsum ceiling design",
+        "Integrated LED strip lighting",
+        "Custom POP moldings",
+        "Smart lighting control system",
+        "Premium materials and finishes",
+        "Sound insulation integration"
+      ],
+      "materials": [
+        "Premium Gypsum Board",
+        "LED Strip Lights",
+        "POP (Plaster of Paris)",
+        "Wooden Beams",
+        "Metal Framework"
+      ],
+      "images": [
+        "/src/assets/gallery-featured-project.jpg",
+        "/src/assets/gallery-residential-1.jpg",
+        "/src/assets/gallery-gypsum-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-featured-project.jpg",
+      "featured": true
+    },
+    {
+      "id": "modern-apartment-e11",
+      "title": "Modern Apartment in E-11",
+      "category": "residential",
+      "location": "E-11, Islamabad",
+      "year": "2024",
+      "client": "Mrs. Sarah Ali",
+      "area": "2,200 sq ft",
+      "duration": "25 days",
+      "budget": "PKR 1,200,000",
+      "description": "Contemporary coffered ceiling with integrated LED lighting for a spacious living room. This project focused on creating an elegant and modern atmosphere while maximizing natural light reflection.",
+      "challenge": "The client wanted a modern ceiling design that would make the space feel larger and brighter while maintaining a sophisticated look.",
+      "solution": "We designed a coffered ceiling with strategic LED placement and light-colored finishes to create the illusion of greater height and enhanced brightness.",
+      "features": [
+        "Coffered ceiling design",
+        "Integrated LED lighting",
+        "Light-reflecting finishes",
+        "Geometric patterns",
+        "Energy-efficient lighting"
+      ],
+      "materials": [
+        "Gypsum Board",
+        "LED Lights",
+        "Metal Grid System",
+        "Acoustic Insulation"
+      ],
+      "images": [
+        "/src/assets/gallery-residential-1.jpg",
+        "/src/assets/gallery-gypsum-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-residential-1.jpg",
+      "featured": false
+    },
+    {
+      "id": "restaurant-blue-area",
+      "title": "Upscale Restaurant in Blue Area",
+      "category": "commercial",
+      "location": "Blue Area, Islamabad",
+      "year": "2023",
+      "client": "Flavors Restaurant",
+      "area": "3,000 sq ft",
+      "duration": "35 days",
+      "budget": "PKR 1,800,000",
+      "description": "Statement ceiling with pendant lights and wooden beams creating an intimate dining atmosphere. This commercial project required balancing aesthetics with acoustic performance.",
+      "challenge": "Create an intimate dining atmosphere while managing acoustics in a large commercial space and meeting fire safety regulations.",
+      "solution": "We incorporated wooden beams with acoustic panels and strategic lighting to create intimate zones while ensuring proper sound management and compliance with commercial building codes.",
+      "features": [
+        "Wooden beam integration",
+        "Acoustic ceiling panels",
+        "Pendant light compatibility",
+        "Fire-resistant materials",
+        "Zone-based lighting control"
+      ],
+      "materials": [
+        "Fire-rated Gypsum Board",
+        "Wooden Beams (Fire-treated)",
+        "Acoustic Panels",
+        "Metal Suspension System",
+        "Fire-resistant Insulation"
+      ],
+      "images": [
+        "/src/assets/gallery-commercial-1.jpg",
+        "/src/assets/gallery-wooden-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-commercial-1.jpg",
+      "featured": false
+    },
+    {
+      "id": "office-space-jinnah",
+      "title": "Modern Office Space",
+      "category": "commercial",
+      "location": "Jinnah Avenue, Islamabad",
+      "year": "2023",
+      "client": "Tech Solutions Ltd",
+      "area": "5,500 sq ft",
+      "duration": "40 days",
+      "budget": "PKR 2,200,000",
+      "description": "Acoustic ceiling panels designed for optimal sound absorption in modern workspace. This project focused on creating a productive work environment with excellent acoustic properties.",
+      "challenge": "Design a ceiling system that reduces noise levels in an open office environment while maintaining a modern, professional appearance.",
+      "solution": "We implemented a comprehensive acoustic ceiling solution with specially designed panels that absorb sound while providing excellent lighting integration.",
+      "features": [
+        "Advanced acoustic panels",
+        "Noise reduction technology",
+        "Integrated lighting system",
+        "Modular design for flexibility",
+        "Easy maintenance access"
+      ],
+      "materials": [
+        "Acoustic Gypsum Panels",
+        "Sound Absorption Materials",
+        "LED Panel Lights",
+        "Metal Grid Ceiling System"
+      ],
+      "images": [
+        "/src/assets/gallery-acoustic-1.jpg",
+        "/src/assets/gallery-commercial-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-acoustic-1.jpg",
+      "featured": false
+    },
+    {
+      "id": "traditional-pop-design",
+      "title": "Traditional POP Ceiling Design",
+      "category": "pop",
+      "location": "G-10, Islamabad",
+      "year": "2024",
+      "client": "Mr. Hassan Malik",
+      "area": "1,800 sq ft",
+      "duration": "30 days",
+      "budget": "PKR 950,000",
+      "description": "Traditional POP (Plaster of Paris) ceiling with hand-crafted floral motifs and borders. This project showcases our expertise in classical ceiling craftsmanship.",
+      "challenge": "Create intricate traditional patterns while ensuring structural integrity and modern functionality.",
+      "solution": "Our master craftsmen hand-carved detailed POP work while incorporating modern mounting techniques and hidden wiring for contemporary convenience.",
+      "features": [
+        "Hand-crafted POP work",
+        "Traditional floral motifs",
+        "Decorative borders",
+        "Hidden wiring integration",
+        "Classical design elements"
+      ],
+      "materials": [
+        "Plaster of Paris (POP)",
+        "Metal Framework",
+        "Decorative Moldings",
+        "Traditional Pigments"
+      ],
+      "images": [
+        "/src/assets/gallery-pop-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-pop-1.jpg",
+      "featured": false
+    },
+    {
+      "id": "wooden-panel-ceiling",
+      "title": "Premium Wooden Panel Ceiling",
+      "category": "wooden",
+      "location": "F-8, Islamabad",
+      "year": "2023",
+      "client": "Dr. Ayesha Farooq",
+      "area": "2,800 sq ft",
+      "duration": "50 days",
+      "budget": "PKR 3,200,000",
+      "description": "Rich walnut wood paneled ceiling with coffered details bringing warmth to the space. This luxury project demonstrates our expertise in premium wood craftsmanship.",
+      "challenge": "Work with premium walnut wood while ensuring proper humidity control and long-term stability in local climate conditions.",
+      "solution": "We used specially treated walnut wood with advanced moisture control systems and precision installation techniques to ensure longevity and beauty.",
+      "features": [
+        "Premium walnut wood panels",
+        "Coffered ceiling design",
+        "Moisture control integration",
+        "Custom millwork details",
+        "Natural wood grain enhancement"
+      ],
+      "materials": [
+        "Premium Walnut Wood",
+        "Moisture Control Systems",
+        "Wood Preservatives",
+        "Custom Hardware",
+        "Precision Brackets"
+      ],
+      "images": [
+        "/src/assets/wooden-ceiling-service.jpg",
+        "/src/assets/gallery-wooden-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-wooden-1.jpg",
+      "featured": false
+    },
+    {
+      "id": "acoustic-sculptural-design",
+      "title": "Sculptural Acoustic Ceiling",
+      "category": "acoustic",
+      "location": "Blue Area, Islamabad",
+      "year": "2024",
+      "client": "Corporate Center",
+      "area": "4,200 sq ft",
+      "duration": "42 days",
+      "budget": "PKR 2,800,000",
+      "description": "Sound-absorbing panels arranged in a sculptural pattern to reduce noise while enhancing aesthetics. This innovative project combines art with functionality.",
+      "challenge": "Create an artistic ceiling installation that provides superior acoustic performance in a high-traffic corporate environment.",
+      "solution": "We designed a sculptural arrangement of acoustic panels that serves as both art installation and functional sound management system.",
+      "features": [
+        "Sculptural panel arrangement",
+        "Superior sound absorption",
+        "Artistic design elements",
+        "High-traffic durability",
+        "Maintenance-friendly design"
+      ],
+      "materials": [
+        "High-Performance Acoustic Panels",
+        "Sound Absorption Core",
+        "Decorative Fabric Wrapping",
+        "Precision Mounting System"
+      ],
+      "images": [
+        "/src/assets/gallery-acoustic-1.jpg"
+      ],
+      "thumbnail": "/src/assets/gallery-acoustic-1.jpg",
+      "featured": false
+    }
+  ]
+}

@@ -2,29 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X, ChevronLeft, ChevronRight, Image as ImageIcon, ChevronDown, Award, Eye } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Image as ImageIcon, ChevronDown, Award, Eye, Loader2 } from "lucide-react";
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
-import projectsData from "@/data/projects.json";
-
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  location: string;
-  year: string;
-  client: string;
-  area: string;
-  duration: string;
-  budget: string;
-  description: string;
-  challenge: string;
-  solution: string;
-  features: string[];
-  materials: string[];
-  images: string[];
-  thumbnail: string;
-  featured: boolean;
-}
+import { useProjects, useCategories, useFeaturedProjects } from "@/hooks/useProjects";
+import type { Project } from "@/services/api";
 
 const Gallery = () => {
   useRevealAnimation();
@@ -33,23 +14,18 @@ const Gallery = () => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const projects: Project[] = projectsData.projects as Project[];
+  // API Hooks
+  const { data: categoriesData, loading: categoriesLoading } = useCategories();
+  const { data: projectsData, loading: projectsLoading } = useProjects({ 
+    category: selectedCategory 
+  });
+  const { data: featuredProjectsData, loading: featuredLoading } = useFeaturedProjects(1);
 
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "residential", name: "Residential" },
-    { id: "commercial", name: "Commercial" },
-    { id: "gypsum", name: "Gypsum Designs" },
-    { id: "pop", name: "POP Designs" },
-    { id: "wooden", name: "Wooden Ceilings" },
-    { id: "acoustic", name: "Acoustic Solutions" }
-  ];
+  const categories = categoriesData || [];
+  const projects = projectsData?.projects || [];
+  const featuredProject = featuredProjectsData?.[0] || null;
 
-  const filteredProjects = selectedCategory === "all" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
-  const featuredProject = projects.find(project => project.featured);
+  
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -205,9 +181,18 @@ const Gallery = () => {
             </div>
           </div>
 
+          {/* Loading State */}
+          {projectsLoading && (
+            <div className="flex justify-center items-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-gold" />
+              <span className="ml-2 text-gray-300">Loading projects...</span>
+            </div>
+          )}
+
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
+          {!projectsLoading && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project) => (
               <div 
                 key={project.id}
                 className="group overflow-hidden rounded-xl fancy-border reveal hover-glow transition-all duration-300"
@@ -256,11 +241,12 @@ const Gallery = () => {
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* No Results */}
-          {filteredProjects.length === 0 && (
+          {!projectsLoading && projects.length === 0 && (
             <div className="text-center py-12">
               <p className="text-xl text-gray-300">No projects found in this category.</p>
             </div>

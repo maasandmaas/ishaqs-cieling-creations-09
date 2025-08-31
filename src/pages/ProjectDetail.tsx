@@ -14,45 +14,27 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  CheckCircle
+  CheckCircle,
+  Loader2
 } from "lucide-react";
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
-import projectsData from "@/data/projects.json";
-
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  location: string;
-  year: string;
-  client: string;
-  area: string;
-  duration: string;
-  budget: string;
-  description: string;
-  challenge: string;
-  solution: string;
-  features: string[];
-  materials: string[];
-  images: string[];
-  thumbnail: string;
-  featured: boolean;
-}
+import { useProject, useRelatedProjects } from "@/hooks/useProjects";
+import type { Project } from "@/services/api";
 
 const ProjectDetail = () => {
   useRevealAnimation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [project, setProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const foundProject = projectsData.projects.find(p => p.id === id);
-    if (foundProject) {
-      setProject(foundProject as Project);
-    }
-  }, [id]);
+  // API Hooks
+  const { data: project, loading: projectLoading, error } = useProject(id);
+  const { data: relatedProjects, loading: relatedLoading } = useRelatedProjects(
+    id, 
+    project?.category || '', 
+    3
+  );
 
   const handlePrevImage = () => {
     if (!project) return;
@@ -87,12 +69,29 @@ const ProjectDetail = () => {
     };
   }, [selectedImage, currentImageIndex, project]);
 
-  if (!project) {
+  // Loading state
+  if (projectLoading) {
     return (
       <div className="pt-24 min-h-screen bg-midnight flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-playfair text-white mb-4">Project Not Found</h1>
-          <p className="text-gray-300 mb-6">The project you're looking for doesn't exist.</p>
+          <Loader2 className="h-8 w-8 animate-spin text-gold mx-auto mb-4" />
+          <p className="text-gray-300">Loading project details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error or not found state
+  if (error || !project) {
+    return (
+      <div className="pt-24 min-h-screen bg-midnight flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-playfair text-white mb-4">
+            {error ? 'Error Loading Project' : 'Project Not Found'}
+          </h1>
+          <p className="text-gray-300 mb-6">
+            {error ? 'There was an error loading the project.' : "The project you're looking for doesn't exist."}
+          </p>
           <Button onClick={() => navigate("/gallery")} variant="outline" className="border-gold text-gold">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Gallery
@@ -274,11 +273,16 @@ const ProjectDetail = () => {
             Related Projects
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectsData.projects
-              .filter(p => p.category === project.category && p.id !== project.id)
-              .slice(0, 3)
-              .map((relatedProject) => (
+          {relatedLoading && (
+            <div className="flex justify-center items-center py-8">
+              <Loader2 className="h-6 w-6 animate-spin text-gold" />
+              <span className="ml-2 text-gray-300">Loading related projects...</span>
+            </div>
+          )}
+
+          {!relatedLoading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedProjects.map((relatedProject) => (
                 <Link
                   key={relatedProject.id}
                   to={`/project/${relatedProject.id}`}
@@ -302,7 +306,8 @@ const ProjectDetail = () => {
                   </div>
                 </Link>
               ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
